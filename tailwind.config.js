@@ -14,31 +14,34 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    // Background & Surface (Warm/Classic)
-                    cream: '#fff8cf',      // Warm Off-White / Cream background utama
-                    sand: '#fbe6c2',       // Light Yellow / Beige untuk card/section alternate
+                    // Surfaces & Backgrounds
+                    cream: '#FAF7F2',       // Warm ecru / off-white background utama
+                    sand: '#F7E7EB',        // Soft dusty rose / blush tint untuk alternate card & bento
+                    blush: '#F4D6DC',       // Romantic blush accent
                     
-                    // Text & Deep Elements (Dark Greens)
-                    dark: '#063b00',       // Sangat gelap, untuk teks heading/paragraf utama
-                    deep: '#266210',       // Dark green untuk footer atau dark section
+                    // Deep Accent & Logo Burgundy
+                    dark: '#530A1E',        // Deep Royal Burgundy / Wine khas logo RÜYA
+                    deep: '#3D0716',        // Darker burgundy untuk footer & high contrast
                     
-                    // Primary Brand (Greens)
-                    primary: '#2a7c13',    // Elemen UI utama, garis arsitektur, border, aksen
-                    light: '#76c457',      // Ikon, badge sekunder, elemen hijau segar
+                    // Primary Fashion Accents
+                    primary: '#6B1D2F',     // Noble Burgundy untuk button & link hover
+                    light: '#8C3147',       // Rose-wine untuk border & tag
                     
-                    // Accent & Highlight
-                    leaf: '#90b800',       // Leaf green aksen
-                    cta: '#e1e100',        // Bright lime/yellow (KHUSUS CTA Button "Hubungi Kami" / "Konsultasi")
+                    // Highlights & Secondary
+                    leaf: '#A85165',        // Soft berry-rose
+                    gold: '#D4AF37',        // Subtle metallic gold touch untuk aksen couture
+                    cta: '#530A1E',         // CTA utama: deep elegant burgundy dengan teks cream
+                    ctaHover: '#3D0716',
                 },
             },
             fontFamily: {
-                serif: ['"Playfair Display"', 'Georgia', ...defaultTheme.fontFamily.serif],
+                serif: ['"Playfair Display"', 'Cormorant Garamond', 'Georgia', ...defaultTheme.fontFamily.serif],
                 sans: ['"Plus Jakarta Sans"', '"DM Sans"', ...defaultTheme.fontFamily.sans],
             },
             boxShadow: {
-                'architectural': '0 20px 45px -15px rgba(6, 59, 0, 0.12)',
-                'card-hover': '0 25px 50px -12px rgba(6, 59, 0, 0.18)',
-                'cta-glow': '0 10px 30px -5px rgba(225, 225, 0, 0.45)',
+                'fashion': '0 20px 45px -15px rgba(83, 10, 30, 0.08)',
+                'card-hover': '0 25px 50px -12px rgba(83, 10, 30, 0.16)',
+                'cta-glow': '0 10px 30px -5px rgba(83, 10, 30, 0.35)',
             },
         },
     },

@@ -5,38 +5,23 @@ defineProps({
     whatsappNumber: {
         type: String,
         default: '6281316053870'
-    },
-    message: {
-        type: String,
-        default: 'Halo Cahaya Ornamen, saya ingin berkonsultasi mengenai kebutuhan ornamen arsitektur (GRC/Krawangan/Pilar/Kubah).'
     }
 });
 </script>
 
 <template>
-    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
-        
-        <!-- Hover Badge / Micro-copy -->
-        <div class="hidden sm:flex items-center px-3.5 py-2 rounded-xl bg-brand-dark/95 backdrop-blur-md text-brand-cta text-xs font-bold shadow-2xl border border-brand-cta/30 translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
-            <span>Konsultasi Cepat WA</span>
-        </div>
-
-        <!-- Floating Icon Button -->
+    <aside 
+        class="fixed bottom-6 right-6 z-40"
+        aria-label="Personal Shopper WhatsApp"
+    >
         <a 
-            :href="`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`"
+            :href="`https://wa.me/${whatsappNumber}?text=Halo%20R%C3%9CYA,%20saya%20tertarik%20dengan%20koleksi%20busana%20modest%20Anda.`"
             target="_blank"
-            rel="noopener noreferrer"
-            class="relative flex items-center justify-center w-14 h-14 rounded-full bg-brand-cta text-brand-dark shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-brand-dark/30 shadow-cta-glow"
-            aria-label="Konsultasi WhatsApp Cahaya Ornamen"
+            class="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-brand-dark text-brand-cream border border-brand-sand/30 shadow-2xl hover:bg-brand-primary transition-all duration-300 hover:scale-105"
         >
-            <!-- Glowing Ping Indicator -->
-            <span class="absolute -top-1 -right-1 flex h-4 w-4">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-4 w-4 bg-green-600 border-2 border-white"></span>
-            </span>
-
-            <MessageSquare class="w-7 h-7 text-brand-dark stroke-[2.3]" />
+            <div class="w-2.5 h-2.5 rounded-full bg-brand-sand animate-pulse"></div>
+            <MessageSquare class="w-4 h-4 text-brand-sand" />
+            <span class="text-xs font-semibold tracking-wide hidden sm:inline">Chat Stylist</span>
         </a>
-
-    </div>
+    </aside>
 </template>

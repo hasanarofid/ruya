@@ -3,84 +3,71 @@ import { Head, Link } from '@inertiajs/vue3';
 import HeaderNavbar from '@/Components/Frontend/HeaderNavbar.vue';
 import FooterSection from '@/Components/Frontend/FooterSection.vue';
 import FloatingWhatsapp from '@/Components/Frontend/FloatingWhatsapp.vue';
-import { ArrowLeft, Clock, Calendar, MessageSquare, Share2 } from 'lucide-vue-next';
+import { ArrowLeft, Clock, Share2 } from 'lucide-vue-next';
 
 defineProps({
     article: {
         type: Object,
         required: true
-    },
-    relatedArticles: {
-        type: Array,
-        default: () => []
     }
 });
 </script>
 
 <template>
-    <Head :title="`${article.title} - Cahaya Ornamen`" />
+    <Head :title="`${article.title} - RÜYA Journal`" />
 
     <div class="min-h-screen bg-brand-cream text-brand-dark font-sans antialiased">
         <HeaderNavbar />
 
         <main class="pt-32 pb-24">
-            <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                 
-                <!-- Back Link -->
-                <div class="mb-8">
-                    <Link :href="route('articles.index')" class="inline-flex items-center gap-2 text-xs font-bold text-brand-primary hover:text-brand-dark transition-colors">
-                        <ArrowLeft class="w-4 h-4" />
-                        <span>Kembali ke Semua Artikel</span>
-                    </Link>
-                </div>
+                <Link 
+                    :href="route('articles.index')" 
+                    class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-dark hover:text-brand-primary"
+                >
+                    <ArrowLeft class="w-4 h-4" />
+                    <span>Kembali ke Journal</span>
+                </Link>
 
-                <!-- Article Header -->
-                <header class="space-y-4 mb-8">
-                    <span class="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider bg-brand-sand text-brand-dark border border-brand-primary/20">
-                        {{ article.category?.name || 'Tips Arsitektur' }}
+                <div class="space-y-4">
+                    <span class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-sand text-brand-dark">
+                        {{ article.category?.name || 'Journal' }}
                     </span>
-                    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark leading-tight">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark leading-tight">
                         {{ article.title }}
                     </h1>
-                    <div class="flex items-center gap-4 text-xs text-brand-dark/70 font-medium">
-                        <span class="flex items-center gap-1.5">
-                            <Clock class="w-4 h-4 text-brand-primary" />
-                            {{ article.reading_time || 4 }} Menit Baca
-                        </span>
+                    <div class="flex items-center gap-4 text-xs text-brand-dark/60 font-medium">
+                        <span>{{ article.published_at }}</span>
+                        <span>•</span>
+                        <span>{{ article.reading_time }} menit baca</span>
                     </div>
-                </header>
+                </div>
 
-                <!-- Featured Image -->
-                <div class="rounded-3xl overflow-hidden shadow-xl mb-12 border border-brand-dark/15 max-h-[480px]">
+                <div class="rounded-3xl overflow-hidden shadow-xl aspect-[16/9] bg-brand-dark">
                     <img 
                         :src="article.image_url" 
-                        :alt="article.title"
-                        class="w-full h-full object-cover" 
+                        :alt="article.title" 
+                        class="w-full h-full object-cover"
                     />
                 </div>
 
-                <!-- Article Body Content -->
-                <div class="prose prose-lg max-w-none text-brand-dark/90 leading-relaxed font-normal space-y-6">
-                    <p class="text-lg sm:text-xl font-serif italic text-brand-dark leading-relaxed">
-                        {{ article.excerpt }}
+                <div class="prose prose-lg max-w-none text-brand-dark/85 font-normal leading-relaxed space-y-6 pt-4">
+                    <p class="text-lg leading-relaxed font-serif italic text-brand-dark">
+                        {{ article.excerpt || article.content }}
                     </p>
-                    <div v-html="article.content"></div>
-                </div>
-
-                <!-- Bottom Consultation Box in Article -->
-                <div class="mt-16 p-8 rounded-2xl bg-brand-sand border border-brand-dark/15 flex flex-col sm:flex-row items-center justify-between gap-6">
-                    <div class="space-y-1">
-                        <h4 class="font-serif text-lg font-bold text-brand-dark">Punya Pertanyaan Teknis Seputar Ornamen?</h4>
-                        <p class="text-xs text-brand-dark/75">Konsultasikan kebutuhan proyek Anda langsung bersama tim arsitek & fabrikator kami.</p>
-                    </div>
-                    <a 
-                        href="https://wa.me/6281316053870?text=Halo%20Cahaya%20Ornamen,%20saya%20membaca%20artikel%20dan%20ingin%20konsultasi"
-                        target="_blank"
-                        class="px-5 py-2.5 rounded-xl bg-brand-cta text-brand-dark font-bold text-xs shadow-md hover:bg-yellow-300 transition-all shrink-0 flex items-center gap-2"
-                    >
-                        <MessageSquare class="w-4 h-4 text-brand-dark" />
-                        <span>Tanya Arsitek via WA</span>
-                    </a>
+                    <p>
+                        Memilih busana modest berkualitas tidak hanya tentang tampilan luarnya, melainkan bagaimana bahan tersebut bersentuhan lembut dengan kulit Anda saat beraktivitas dari pagi hingga malam hari. Kain sutra alami dan ceruty premium membutuhkan perlakuan khusus agar kilaunya tetap terjaga selama bertahun-tahun.
+                    </p>
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark pt-4">
+                        Langkah Perawatan Sederhana di Rumah:
+                    </h3>
+                    <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base">
+                        <li>Cuci menggunakan air dingin dengan deterjen cair khusus sutra atau sampo bayi.</li>
+                        <li>Jangan memeras gaun dengan keras; cukup tekan lembut menggunakan handuk bersih.</li>
+                        <li>Jemur di tempat teduh tanpa terkena paparan sinar matahari langsung.</li>
+                        <li>Gunakan setrika uap atau setrika bertemperatur rendah dengan alas kain katun tipis.</li>
+                    </ul>
                 </div>
 
             </article>

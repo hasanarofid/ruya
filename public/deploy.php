@@ -1,23 +1,24 @@
 <?php
 /**
  * --------------------------------------------------------------------------
- * Cahaya Ornamen - Automated Deployment Webhook Script for Shared Hosting
+ * RÜYA Modest Luxury - Automated Deployment Webhook Script for Shared Hosting
+ * Target Host: https://demo.hasanarofid.site
  * --------------------------------------------------------------------------
  * Script ini digunakan untuk menarik perubahan (git pull) otomatis ke Shared Hosting
- * setelah Anda push dari lokal.
+ * cPanel / DirectAdmin Anda.
  * 
  * Cara Penggunaan:
- * 1. Buka melalui browser / webhook URL:
- *    https://cahayaornamen.com/deploy.php?token=GANTI_DENGAN_TOKEN_RAHASIA_ANDA
+ * 1. Panggil melalui browser / cron / webhook URL:
+ *    https://demo.hasanarofid.site/deploy.php?token=ruya_luxury_deploy_2026_xyz
  * 
  * 2. Atau pasang di GitHub Webhook:
- *    - Payload URL: https://cahayaornamen.com/deploy.php?token=GANTI_DENGAN_TOKEN_RAHASIA_ANDA
+ *    - Payload URL: https://demo.hasanarofid.site/deploy.php?token=ruya_luxury_deploy_2026_xyz
  *    - Content type: application/json
  *    - Events: Just the push event
  */
 
 // Ganti token ini dengan string rahasia yang unik dan aman
-define('DEPLOY_SECRET_TOKEN', 'cahaya_ornamen_deploy_2026_xyz');
+define('DEPLOY_SECRET_TOKEN', 'ruya_luxury_deploy_2026_xyz');
 
 // Branch yang ingin ditarik
 define('DEPLOY_BRANCH', 'main');
@@ -39,6 +40,7 @@ if (!$requestToken || !hash_equals(DEPLOY_SECRET_TOKEN, $requestToken)) {
     echo "===========================================\n";
     echo " 403 FORBIDDEN: Akses Ditolak!\n";
     echo " Token deployment tidak valid atau belum diisi.\n";
+    echo " Host Target: demo.hasanarofid.site\n";
     echo "===========================================\n";
     exit;
 }
@@ -60,11 +62,11 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deploying Cahaya Ornamen...</title>
+    <title>Deploying RÜYA Modest Fashion...</title>
     <style>
         body {
-            background-color: #063b00;
-            color: #fff8cf;
+            background-color: #3D0716;
+            color: #FAF7F2;
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
             padding: 30px;
             margin: 0;
@@ -72,46 +74,47 @@ header('Content-Type: text/html; charset=utf-8');
             line-height: 1.6;
         }
         .header {
-            border-bottom: 2px solid #2a7c13;
+            border-bottom: 2px solid #6B1D2F;
             padding-bottom: 15px;
             margin-bottom: 25px;
         }
         .badge {
             display: inline-block;
-            background: #e1e100;
-            color: #063b00;
+            background: #F4D6DC;
+            color: #530A1E;
             padding: 3px 8px;
             font-weight: bold;
             border-radius: 4px;
             font-size: 11px;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         .command {
-            color: #76c457;
+            color: #F7E7EB;
             font-weight: bold;
             margin-top: 15px;
             margin-bottom: 5px;
         }
         .output {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(118, 196, 87, 0.2);
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(244, 214, 220, 0.15);
             padding: 10px 14px;
             border-radius: 6px;
             white-space: pre-wrap;
             word-break: break-all;
-            color: #e5e5e5;
+            color: #F7E7EB;
         }
         .success {
-            color: #e1e100;
+            color: #F4D6DC;
             font-weight: bold;
             margin-top: 25px;
             padding: 15px;
-            background: rgba(42, 124, 19, 0.3);
-            border: 1px solid #76c457;
+            background: rgba(83, 10, 30, 0.6);
+            border: 1px solid #A85165;
             border-radius: 6px;
         }
         .error {
-            color: #ff6b6b;
+            color: #ff8e8e;
             font-weight: bold;
         }
     </style>
@@ -119,9 +122,9 @@ header('Content-Type: text/html; charset=utf-8');
 <body>
 
 <div class="header">
-    <span class="badge">Deployment Engine</span>
-    <h2 style="margin: 8px 0 0 0; color: #fff8cf; font-family: serif;">Cahaya Ornamen — Shared Hosting Auto Pull</h2>
-    <div style="font-size: 11px; opacity: 0.8;">Waktu Server: <?= date('Y-m-d H:i:s') ?> | Target: <?= htmlspecialchars($basePath) ?></div>
+    <span class="badge">RÜYA Deployment Engine</span>
+    <h2 style="margin: 8px 0 0 0; color: #FAF7F2; font-family: serif; letter-spacing: 0.04em;">RÜYA Haute Modest Fashion — Auto Deployer</h2>
+    <div style="font-size: 11px; opacity: 0.85; margin-top: 4px;">Host: <strong>demo.hasanarofid.site</strong> | Waktu Server: <?= date('Y-m-d H:i:s') ?> | Root: <?= htmlspecialchars($basePath) ?></div>
 </div>
 
 <?php
@@ -129,7 +132,7 @@ flush();
 
 // Cek ketersediaan fungsi exec
 if (!function_exists('exec') && !function_exists('shell_exec')) {
-    echo '<div class="error">❌ ERROR: Fungsi exec() atau shell_exec() dinonaktifkan oleh shared hosting Anda di php.ini.</div>';
+    echo '<div class="error">❌ ERROR: Fungsi exec() atau shell_exec() dinonaktifkan oleh shared hosting di php.ini.</div>';
     echo '<div>Silakan aktifkan fungsi exec melalui cPanel > Select PHP Version > Options (hapus exec dari disable_functions).</div>';
     unlink($lockFile);
     exit;
@@ -149,7 +152,7 @@ $commands = [
 $hasError = false;
 
 foreach ($commands as $label => $cmd) {
-    echo "<div class=\"command\">▶ {$label}: <span style=\"opacity: 0.7;\">({$cmd})</span></div>";
+    echo "<div class=\"command\">▶ {$label}: <span style=\"opacity: 0.75;\">({$cmd})</span></div>";
     
     // Pindah ke root folder lalu jalankan perintah
     $fullCommand = "cd {$basePath} && {$cmd}";
@@ -179,7 +182,7 @@ if (file_exists($lockFile)) {
 }
 
 if (!$hasError) {
-    echo '<div class="success">✨ DEPLOYMENT SELESAI DENGAN SUKSES! Website Cahaya Ornamen telah diperbarui dengan aset terbaru.</div>';
+    echo '<div class="success">✨ DEPLOYMENT SELESAI DENGAN SUKSES! Toko Online RÜYA pada https://demo.hasanarofid.site telah berhasil diperbarui.</div>';
 } else {
     echo '<div class="error" style="margin-top: 20px;">⚠️ Deployment selesai dengan catatan peringatan. Silakan periksa log di atas.</div>';
 }

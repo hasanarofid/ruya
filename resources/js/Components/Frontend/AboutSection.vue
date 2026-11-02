@@ -1,5 +1,5 @@
 <script setup>
-import { Check, Hammer, Award, Compass, Sparkles } from 'lucide-vue-next';
+import { Sparkles, Heart, Scissors, ShieldCheck, ArrowRight } from 'lucide-vue-next';
 
 defineProps({
     whatsappNumber: {
@@ -10,137 +10,83 @@ defineProps({
 </script>
 
 <template>
-    <section id="about" class="py-24 bg-brand-sand/50 relative overflow-hidden border-y border-brand-dark/10">
-        
-        <!-- Subtle Arabesque Watermark on Right - Straight & Ultra Light -->
-        <div class="absolute -right-20 sm:-right-28 top-1/2 -translate-y-1/2 w-[340px] sm:w-[420px] pointer-events-none select-none opacity-[0.05] sm:opacity-[0.07] mix-blend-multiply z-0">
-            <img 
-                src="/images/ornaments/mandala-transparent.png" 
-                alt="Ornamen Arabesque Background" 
-                class="w-full h-auto object-contain transform scale-x-[-1]"
-                loading="lazy"
-            />
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
+    <section id="about" class="py-24 bg-brand-sand/50 relative overflow-hidden border-t border-brand-dark/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
-                <!-- Left: Overlapping Photo Composition (5 cols) -->
-                <div class="lg:col-span-5 relative order-2 lg:order-1">
-                    
-                    <!-- Decorative Backdrop Box -->
-                    <div class="w-full h-full absolute -top-4 -left-4 bg-brand-primary/10 rounded-2xl -z-10 border border-brand-primary/20"></div>
-
-                    <!-- Main Image: Workshop Craftsmanship -->
-                    <div class="rounded-2xl overflow-hidden shadow-xl border border-brand-dark/15">
+                <!-- Left Visual Showcase (5 cols) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl border border-brand-dark/15 aspect-[4/5] bg-brand-dark">
                         <img 
-                            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" 
-                            alt="Proses Pembuatan Cetakan GRC Cahaya Ornamen" 
-                            class="w-full h-[380px] sm:h-[440px] object-cover hover:scale-105 transition-transform duration-700 ease-out"
+                            src="/images/products/atelier-craftsmanship.jpg" 
+                            alt="Atelier Penjahit RÜYA" 
+                            class="w-full h-full object-cover object-center"
+                            loading="lazy"
                         />
-                    </div>
-
-                    <!-- Overlapping Secondary Detail Image -->
-                    <div class="absolute -bottom-8 -right-4 sm:-right-8 w-48 sm:w-56 rounded-xl overflow-hidden shadow-2xl border-2 border-brand-cream hidden sm:block">
-                        <img 
-                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=80" 
-                            alt="Detail Tekstur Relief Ornamen Semen GRC" 
-                            class="w-full h-36 object-cover"
-                        />
-                        <div class="p-2.5 bg-brand-dark text-white text-[11px] font-medium text-center">
-                            Detail Relief Finis Halus
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-brand-cream">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-sand">Atelier & Studio</span>
+                            <h4 class="font-serif text-xl font-bold">Ketelitian Jahitan Tangan Semi-Boutique</h4>
                         </div>
                     </div>
 
-                    <!-- Badge Highlight -->
-                    <div class="absolute top-6 left-6 bg-brand-dark/90 text-brand-cta text-xs font-bold px-3 py-1.5 rounded-md backdrop-blur-sm border border-brand-cta/20 flex items-center gap-1.5">
-                        <Sparkles class="w-3.5 h-3.5" />
-                        <span>Pabrikasi Mandiri</span>
+                    <!-- Mini Floating Experience Badge -->
+                    <div class="absolute -bottom-6 -right-4 bg-brand-cream p-5 rounded-2xl border border-brand-dark/15 shadow-xl max-w-[200px]">
+                        <div class="font-serif text-3xl font-bold text-brand-dark">100%</div>
+                        <p class="text-[11px] text-brand-dark/70 font-medium leading-tight mt-1">Kurasi Serat Kain Alami Pilihan</p>
                     </div>
-
                 </div>
 
-                <!-- Right: Editorial Narrative Content (7 cols) -->
-                <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+                <!-- Right Editorial Philosophy (7 cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-dark">
+                        Filosofi Kami
+                    </span>
                     
-                    <div class="space-y-2">
-                        <span class="text-xs sm:text-sm font-bold tracking-widest text-brand-primary uppercase">
-                            Tentang Cahaya Ornamen
-                        </span>
-                        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark leading-tight">
-                            Menyatukan Seni Arsitektur Klasik dengan Ketangguhan Teknologi Modern.
-                        </h2>
-                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark leading-tight">
+                        Mengembalikan Hakikat Keanggunan Muslimah Melalui Kesantunan.
+                    </h2>
 
-                    <p class="text-base sm:text-lg text-brand-dark/85 leading-relaxed font-normal">
-                        Didirikan dengan dedikasi pada keindahan ornamen arsitektur nusantara dan klasik dunia, 
-                        <strong>Cahaya Ornamen</strong> telah melayani ratusan proyek masjid, gedung instansi, dan residensial mewah di berbagai wilayah Indonesia.
+                    <p class="text-base sm:text-lg text-brand-dark/80 leading-relaxed font-normal">
+                        RÜYA lahir dari kerinduan akan busana modest yang tidak hanya memenuhi syariat penutup aurat yang sempurna, melainkan juga menghadirkan kebanggaan estetika layaknya busana adibusana dunia.
                     </p>
 
-                    <p class="text-sm sm:text-base text-brand-dark/80 leading-relaxed">
-                        Kami tidak sekadar mencetak ornamen, melainkan melakukan kalkulasi beban struktur, pemilihan formula bahan baku tahan alkali (*Alkali Resistant Glassfibre*), serta penyediaan rangka baja galvanis yang kokoh untuk memastikan setiap panel GRC terpasang dengan presisi dan awet puluhan tahun.
+                    <p class="text-sm text-brand-dark/75 leading-relaxed">
+                        Setiap desain kami melalui riset kenyamanan termal untuk iklim tropis Indonesia—memadukan serat sutra alami, crepe lembut yang tidak mencetak lekuk tubuh, serta jahitan tepi kelim halus yang tidak mudah terurai.
                     </p>
 
-                    <!-- 4 Pillars of Excellence Grid -->
+                    <!-- Core Value Pills -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <div class="p-4 rounded-xl bg-brand-cream border border-brand-dark/10 shadow-sm flex items-start gap-3.5">
-                            <div class="p-2 rounded-lg bg-brand-dark text-brand-cta shrink-0">
-                                <Award class="w-5 h-5" />
+                        <div class="p-4 rounded-xl bg-brand-cream border border-brand-dark/10 space-y-1.5">
+                            <div class="flex items-center gap-2 font-serif font-bold text-brand-dark text-base">
+                                <Sparkles class="w-4 h-4 text-brand-dark" />
+                                <span>No AI Slop / Otentik</span>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-brand-dark">Kualitas Teruji</h4>
-                                <p class="text-xs text-brand-dark/70 mt-0.5">Semen mutu tinggi & serat fiber impor tahan alkali.</p>
-                            </div>
+                            <p class="text-xs text-brand-dark/70">Seluruh foto, pola, dan busana difoto dari produk fisik nyata karya tangan perancang kami.</p>
                         </div>
 
-                        <div class="p-4 rounded-xl bg-brand-cream border border-brand-dark/10 shadow-sm flex items-start gap-3.5">
-                            <div class="p-2 rounded-lg bg-brand-dark text-brand-cta shrink-0">
-                                <Compass class="w-5 h-5" />
+                        <div class="p-4 rounded-xl bg-brand-cream border border-brand-dark/10 space-y-1.5">
+                            <div class="flex items-center gap-2 font-serif font-bold text-brand-dark text-base">
+                                <Scissors class="w-4 h-4 text-brand-dark" />
+                                <span>Bespoke Cutting</span>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-brand-dark">Custom Design 3D</h4>
-                                <p class="text-xs text-brand-dark/70 mt-0.5">Motif apapun dapat dibuat sesuai gambar arsitek.</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-brand-cream border border-brand-dark/10 shadow-sm flex items-start gap-3.5">
-                            <div class="p-2 rounded-lg bg-brand-dark text-brand-cta shrink-0">
-                                <Hammer class="w-5 h-5" />
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-brand-dark">Bobot 80% Lebih Ringan</h4>
-                                <p class="text-xs text-brand-dark/70 mt-0.5">Mengurangi beban struktur gedung & hemat fondasi.</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-brand-cream border border-brand-dark/10 shadow-sm flex items-start gap-3.5">
-                            <div class="p-2 rounded-lg bg-brand-dark text-brand-cta shrink-0">
-                                <Check class="w-5 h-5" />
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-sm text-brand-dark">Garansi Hasil Pasang</h4>
-                                <p class="text-xs text-brand-dark/70 mt-0.5">Didukung teknisi berpengalaman sertifikasi K3.</p>
-                            </div>
+                            <p class="text-xs text-brand-dark/70">Potongan gaun tidak ketat, leluasa bergerak, serta wudhu-friendly dengan zipper dan kancing manset.</p>
                         </div>
                     </div>
 
-                    <!-- CTA Mini Action -->
                     <div class="pt-2">
                         <a 
-                            :href="`https://wa.me/${whatsappNumber}?text=Halo%20Cahaya%20Ornamen,%20saya%20ingin%20tahu%20lebih%20banyak%20mengenai%20spesifikasi%20material%20GRC`"
+                            :href="`https://wa.me/${whatsappNumber}?text=Halo%20R%C3%9CYA,%20saya%20ingin%20tahu%20lebih%20banyak%20tentang%20bahan%20kain%20yang%20digunakan.`"
                             target="_blank"
-                            class="inline-flex items-center gap-2 text-sm font-bold text-brand-primary hover:text-brand-dark underline underline-offset-4 transition-colors"
+                            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-dark hover:text-brand-primary group transition-colors"
                         >
-                            <span>Pelajari Spesifikasi Material & Kunjungi Workshop Kami</span>
-                            <span>&rarr;</span>
+                            <span>Tanyakan Langsung ke Konsultan Busana</span>
+                            <ArrowRight class="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </a>
                     </div>
-
                 </div>
 
             </div>
-
         </div>
     </section>
 </template>

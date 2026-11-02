@@ -5,7 +5,7 @@ import HeaderNavbar from '@/Components/Frontend/HeaderNavbar.vue';
 import ProductCard from '@/Components/Frontend/ProductCard.vue';
 import FooterSection from '@/Components/Frontend/FooterSection.vue';
 import FloatingWhatsapp from '@/Components/Frontend/FloatingWhatsapp.vue';
-import { Search, Filter, Layers } from 'lucide-vue-next';
+import { Search, Sparkles, Layers } from 'lucide-vue-next';
 
 const props = defineProps({
     categories: {
@@ -44,7 +44,7 @@ const filterByCategory = (slug) => {
 </script>
 
 <template>
-    <Head title="Katalog Produk Ornamen Arsitektur - Cahaya Ornamen" />
+    <Head title="Katalog Koleksi Busana Modest - RÜYA" />
 
     <div class="min-h-screen bg-brand-cream text-brand-dark font-sans antialiased">
         <HeaderNavbar />
@@ -54,14 +54,14 @@ const filterByCategory = (slug) => {
                 
                 <!-- Page Title -->
                 <div class="max-w-3xl mb-12 space-y-3">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-primary">
-                        Katalog Produk Lengkap
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-dark">
+                        Katalog Busana Modest Lengkap
                     </span>
                     <h1 class="font-serif text-4xl sm:text-5xl font-bold text-brand-dark leading-tight">
-                        Pilihan Ornamen GRC, Krawangan, Pilar, & Kubah.
+                        Koleksi Abaya, Gaun, Hijab, & Outerwear RÜYA.
                     </h1>
                     <p class="text-base text-brand-dark/80">
-                        Eksplorasi koleksi ornamen dengan spesifikasi teknis lengkap, formula semen tahan cuaca tropis, dan dimensi fleksibel.
+                        Eksplorasi busana berpotongan syar'i elegan dengan bahan sutra murni, ceruty baby doll pilihan, dan pashmina cashmere touch.
                     </p>
                 </div>
 
@@ -73,16 +73,16 @@ const filterByCategory = (slug) => {
                         <button 
                             @click="filterByCategory(null)"
                             class="px-4 py-2 rounded-xl text-xs font-bold transition-all"
-                            :class="[!currentCategory ? 'bg-brand-dark text-brand-cta shadow-sm' : 'bg-brand-cream text-brand-dark hover:bg-brand-sand']"
+                            :class="[!currentCategory ? 'bg-brand-dark text-brand-cream shadow-sm' : 'bg-brand-cream text-brand-dark hover:bg-brand-blush']"
                         >
-                            Semua Kategori
+                            Semua Koleksi
                         </button>
                         <button 
                             v-for="cat in categories" 
                             :key="cat.id"
                             @click="filterByCategory(cat.slug)"
                             class="px-4 py-2 rounded-xl text-xs font-bold transition-all"
-                            :class="[currentCategory === cat.slug ? 'bg-brand-dark text-brand-cta shadow-sm' : 'bg-brand-cream text-brand-dark hover:bg-brand-sand']"
+                            :class="[currentCategory === cat.slug ? 'bg-brand-dark text-brand-cream shadow-sm' : 'bg-brand-cream text-brand-dark hover:bg-brand-blush']"
                         >
                             {{ cat.name }}
                         </button>
@@ -94,8 +94,8 @@ const filterByCategory = (slug) => {
                             v-model="search"
                             @keyup.enter="handleSearch"
                             type="text" 
-                            placeholder="Cari ornamen..."
-                            class="w-full pl-9 pr-4 py-2 rounded-xl bg-brand-cream border border-brand-dark/20 text-xs text-brand-dark focus:ring-2 focus:ring-brand-primary outline-none"
+                            placeholder="Cari gaun, abaya, hijab..."
+                            class="w-full pl-9 pr-4 py-2 rounded-xl bg-brand-cream border border-brand-dark/20 text-xs text-brand-dark focus:ring-2 focus:ring-brand-dark outline-none"
                         />
                         <Search class="w-4 h-4 text-brand-dark/50 absolute left-3 top-2.5" />
                     </div>
@@ -113,9 +113,9 @@ const filterByCategory = (slug) => {
 
                 <!-- Empty State -->
                 <div v-else class="text-center py-20 bg-brand-sand rounded-3xl p-8 border border-brand-dark/15 space-y-3">
-                    <Layers class="w-12 h-12 text-brand-primary mx-auto opacity-50" />
-                    <h3 class="font-serif text-xl font-bold text-brand-dark">Belum ada produk yang cocok</h3>
-                    <p class="text-sm text-brand-dark/70">Coba ubah kata kunci pencarian atau pilih kategori lain.</p>
+                    <Sparkles class="w-12 h-12 text-brand-dark mx-auto opacity-50" />
+                    <h3 class="font-serif text-xl font-bold text-brand-dark">Belum ada busana yang sesuai</h3>
+                    <p class="text-sm text-brand-dark/70">Coba ubah kata kunci pencarian atau pilih kategori koleksi lain.</p>
                 </div>
 
             </div>
