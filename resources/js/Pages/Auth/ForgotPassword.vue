@@ -25,8 +25,8 @@ const submit = () => {
     <GuestLayout>
         <Head title="Forgot Password" />
 
-        <div class="mb-6 text-xs font-medium text-slate-405 leading-relaxed">
-            Lupa kata sandi Anda? Tidak masalah. Masukkan alamat email Anda di bawah ini, kami akan mengirimkan email berisi tautan pemulihan kata sandi baru.
+        <div class="mb-6 text-xs font-medium text-brand-leaf leading-relaxed">
+            Lupa kata sandi Anda? Tidak masalah. Masukkan alamat email Anda di bawah ini, kami akan mengirimkan tautan pemulihan kata sandi baru.
         </div>
 
         <div

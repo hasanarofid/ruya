@@ -72,27 +72,27 @@ const submit = () => {
             <div class="mt-4 block">
                 <label class="flex items-center">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-2 text-xs font-semibold text-slate-400"
-                        >Remember me</span
+                    <span class="ms-2 text-xs font-medium text-brand-dark/75"
+                        >Ingat saya di perangkat ini</span
                     >
                 </label>
             </div>
 
-            <div class="mt-4 flex items-center justify-end">
+            <div class="mt-6 flex items-center justify-between pt-2 border-t border-brand-sand/60">
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="text-xs font-semibold text-slate-400 hover:text-indigo-400 hover:underline transition-colors"
+                    class="text-xs font-semibold text-brand-leaf hover:text-brand-dark transition-colors"
                 >
-                    Forgot your password?
+                    Lupa kata sandi?
                 </Link>
 
                 <PrimaryButton
-                    class="ms-4"
+                    class="ms-auto"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Log in
+                    Masuk ke Atelier
                 </PrimaryButton>
             </div>
         </form>

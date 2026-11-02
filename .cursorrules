@@ -1,24 +1,48 @@
-# Aturan Proyek: Cahaya Ornamen CMS
+# Aturan Proyek: RÜYA — Modern Haute Modest Fashion E-Commerce
 
-Proyek ini adalah CMS (Content Management System) khusus untuk bisnis Ornamen Arsitektur & Fabrikasi GRC Cahaya Ornamen. Sistem dibangun menggunakan Laravel 11, Vue 3 (Inertia.js), dan Tailwind CSS.
+Proyek ini adalah platform E-Commerce dan Content Management System (CMS) resmi untuk brand busana Muslimah Modern & High-End Modest Wear: **RÜYA** (Rüya — Dream & Elegance in Modest Wear). Sistem dibangun menggunakan **Laravel 11**, **Vue 3 (Inertia.js)**, dan **Tailwind CSS**.
 
-## Panduan Pengembangan:
-1. **Fokus Bisnis Proses**: 
-   - Sistem ini dirancang spesifik untuk perusahaan arsitek (menampilkan portofolio desain, layanan jasa, testimoni klien, dan blog/artikel).
-   - Seperti WordPress namun khusus untuk Arsitek.
+---
 
-2. **Kustomisasi Dinamis (Admin Panel)**:
-   - **Tampilan Identitas**: Admin harus bisa mengubah Logo dan Warna Utama (Primary Color) website dari halaman pengaturan, dan perubahan ini harus langsung tercermin pada frontend.
-   - **Manajemen Halaman Depan**: Panel-panel atau seksi pada halaman depan (Hero, About, Portfolio, Services, Testimonials) harus bersifat dinamis. Admin bisa mengatur urutan, mengaktifkan/menonaktifkan, atau mengubah kontennya.
-   - **Default Template**: Sediakan tampilan awal (default layout) yang sudah terlihat premium dan siap pakai, namun dapat dicustom oleh admin kapan saja.
+## 1. Identitas Brand & Desain UI/UX (Aturan Wajib)
 
-3. **Desain & UI/UX**:
-   - Gunakan pendekatan desain modern, elegan, dan clean yang merepresentasikan profesionalisme seorang arsitek.
-   - Panel admin menggunakan dark mode atau desain profesional yang bersih, berbasis Tailwind CSS.
+Setiap halaman (Frontend, Halaman Autentikasi/Login, dan Admin Panel) **WAJIB** menerapkan identitas visual RÜYA secara konsisten:
 
-4. **Teknis**:
-   - Frontend: Vue 3 dengan Composition API dan Inertia.js.
-   - Styling: Tailwind CSS (terapkan CSS Variables untuk dynamic primary color).
-   - Backend: Laravel 11.
-   - Database: MySQL/PostgreSQL (Gunakan migration dan seeder yang lengkap untuk data awal).
-   - Manajemen State: Gunakan composables di Vue 3 atau props dari Inertia.
+### Palet Warna Resmi:
+- **Primary & Deep Burgundy (`#530A1E`, `#3D0716` / `brand-dark`, `brand-deep`):** Identitas utama cap stempel monogram RÜYA; digunakan untuk header sidebar, primary buttons (CTA), aksen penting, dan teks kontras.
+- **Warm Ecru / Silk Cream (`#FAF7F2` / `brand-cream`):** Background kanvas utama seluruh aplikasi (baik Frontend maupun Admin). Bersih, lembut, bernapas, dan elegan tanpa warna putih tajam buatan.
+- **Dusty Blush & Romantic Rose (`#F7E7EB`, `#F4D6DC`, `#A85165` / `brand-sand`, `brand-blush`, `brand-leaf`):** Warna kartu, kontainer, border halus, badge, dan hover states yang feminin serta menenangkan.
+- **Metallic Gold Accent (`#D4AF37` / `brand-gold`):** Sentuhan kemewahan couture pada border aktif, ikon signature, badge best-seller, dan detail aksen.
+
+### Tipografi & Visual:
+- **Font Serif:** `Playfair Display`, `Cormorant Garamond` — gunakan untuk heading, nama brand, judul halaman, dan aksen editorial haute couture.
+- **Font Sans:** `Plus Jakarta Sans`, `DM Sans` — gunakan untuk body copy, label input, teks navigasi, dan data tabel.
+- **Logo Resmi:** Monogram stamp RÜYA (`/images/ruya-logo.png`). DILARANG menggunakan ikon generic boilerplate seperti `Layers` sebagai logo aplikasi.
+- **Visual & Foto:** Menggunakan estetika busana muslimah elegan, realistis, dan berstandar editorial butik (bukan generik AI).
+
+---
+
+## 2. Arsitektur & Aturan Admin Panel
+
+1. **Konsistensi UI/UX:**
+   - Panel Admin dan halaman Auth (`/login`, `/register`, dsb.) **HARUS** selaras 100% dengan estetika frontend RÜYA (Warm Silk Cream canvas, Deep Burgundy signature sidebar/buttons, Romantic Rose borders & cards).
+   - Hindari tampilan generic dark-mode cyberpunk/slate biru neon boilerplate.
+2. **Routing & Autentikasi:**
+   - URL `/admin` harus mengarahkan pengguna ke admin dashboard (`/admin/dashboard`). Jika belum terautentikasi, middleware `auth` mengarahkan ke `/login` dan kembali ke `/admin` setelah login berhasil.
+   - Hak akses multi-peran menggunakan Spatie Laravel Permission (Admin, Editor, Client).
+3. **Fungsi Utama Admin:**
+   - Manajemen Katalog Busana (Abaya & Dress, Hijab & Scarf, Outerwear, Loungewear).
+   - Pengaturan Website (Kontak WhatsApp, Studio Address, Logo, Link Eksternal).
+   - Manajemen Halaman Dinamis & Sections (Hero, Story, Lookbook Bento, Testimoni).
+   - Pengelolaan Pesanan / Konsultasi Masuk (Inquiries via WhatsApp).
+
+---
+
+## 3. Standar Teknis & Kualitas Kode
+
+- **Backend:** Laravel 11 dengan Controller yang ramping, FormRequest untuk validasi, dan Eloquent Resource.
+- **Frontend:** Vue 3 Composition API (`<script setup>`) terintegrasi dengan Inertia.js.
+- **Styling:** Tailwind CSS dengan utilitas kelas `brand-*` sesuai konfigurasi `tailwind.config.js`.
+- **Konsistensi Komponen:** Gunakan komponen reusable (`TextInput`, `PrimaryButton`, `InputLabel`, `Checkbox`, `DataTable`) dengan styling terpusat bertema RÜYA.
+- **Prinsip:** Terapkan Clean Code, DRY (Don't Repeat Yourself), dan KISS (Keep It Simple, Stupid).
+- **Deployment:** Aset dikompilasi di lokal dengan `npm run build` untuk server production (`demo.hasanarofid.site`).

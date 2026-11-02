@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
-import { Save, Image as ImageIcon, Link as LinkIcon, Phone, FileText, Globe } from '@lucide/vue';
+import { Save, Image as ImageIcon, Link as LinkIcon, Phone, FileText, Globe, Sparkles } from '@lucide/vue';
 
 const props = defineProps({
   settings: {
@@ -53,83 +53,87 @@ const submit = () => {
 </script>
 
 <template>
-  <Head title="Web Settings" />
+  <Head title="Pengaturan Butik — RÜYA" />
 
   <AdminLayout>
     <div class="space-y-8 max-w-4xl">
       <!-- Title -->
       <div>
-        <h2 class="text-3xl font-extrabold tracking-tight text-white">Web Settings</h2>
-        <p class="text-sm text-slate-400 mt-1">Kelola konfigurasi global website Anda seperti logo, kontak WhatsApp, dan lainnya.</p>
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-leaf mb-1">
+          <Sparkles class="w-4 h-4 text-brand-gold" />
+          <span>Atelier Brand Configuration</span>
+        </div>
+        <h2 class="text-3xl font-serif font-bold tracking-tight text-brand-dark">Pengaturan Butik & Sistem</h2>
+        <p class="text-sm text-brand-leaf/80 mt-1">Kelola identitas resmi RÜYA, nomor WhatsApp pemesanan, dan aset visual.</p>
       </div>
 
-      <!-- Navigation Tabs (SaaS Style) -->
-      <div class="flex border-b border-slate-800">
+      <!-- Navigation Tabs (Haute Style) -->
+      <div class="flex border-b border-brand-sand">
         <button 
           @click="currentTab = 'site'"
           :class="[
             currentTab === 'site' 
-              ? 'border-indigo-500 text-indigo-400 bg-slate-900/10' 
-              : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700',
-            'px-6 py-3 border-b-2 font-semibold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer'
+              ? 'border-brand-dark text-brand-dark bg-brand-sand/30 font-bold' 
+              : 'border-transparent text-brand-leaf/70 hover:text-brand-dark hover:border-brand-sand font-medium',
+            'px-6 py-3.5 border-b-2 text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer rounded-t-xl'
           ]"
         >
           <span class="flex items-center gap-2">
             <Globe class="w-4 h-4" />
-            Profil Situs
+            Identitas Brand
           </span>
         </button>
         <button 
           @click="currentTab = 'links'"
           :class="[
             currentTab === 'links' 
-              ? 'border-indigo-500 text-indigo-400 bg-slate-900/10' 
-              : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700',
-            'px-6 py-3 border-b-2 font-semibold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer'
+              ? 'border-brand-dark text-brand-dark bg-brand-sand/30 font-bold' 
+              : 'border-transparent text-brand-leaf/70 hover:text-brand-dark hover:border-brand-sand font-medium',
+            'px-6 py-3.5 border-b-2 text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer rounded-t-xl'
           ]"
         >
           <span class="flex items-center gap-2">
             <LinkIcon class="w-4 h-4" />
-            Kontak & Tautan
+            WhatsApp & Kontak
           </span>
         </button>
         <button 
           @click="currentTab = 'logo'"
           :class="[
             currentTab === 'logo' 
-              ? 'border-indigo-500 text-indigo-400 bg-slate-900/10' 
-              : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700',
-            'px-6 py-3 border-b-2 font-semibold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer'
+              ? 'border-brand-dark text-brand-dark bg-brand-sand/30 font-bold' 
+              : 'border-transparent text-brand-leaf/70 hover:text-brand-dark hover:border-brand-sand font-medium',
+            'px-6 py-3.5 border-b-2 text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer rounded-t-xl'
           ]"
         >
           <span class="flex items-center gap-2">
             <ImageIcon class="w-4 h-4" />
-            Logo Website
+            Logo Monogram
           </span>
         </button>
       </div>
 
       <!-- Settings Card -->
-      <form @submit.prevent="submit" class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-xl shadow-slate-950/20">
+      <form @submit.prevent="submit" class="bg-white border border-brand-sand/80 rounded-3xl overflow-hidden shadow-fashion">
         <div class="p-6 md:p-8">
           
-          <!-- Tab 1: Profil Situs -->
+          <!-- Tab 1: Identitas Brand -->
           <div v-if="currentTab === 'site'" class="space-y-6 animate-fadeIn">
             <!-- Site Name -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-              <label for="site_name" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Nama Website</label>
+              <label for="site_name" class="text-xs font-bold text-brand-dark/80 uppercase tracking-wider">Nama Brand / Website</label>
               <div class="md:col-span-2 relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-brand-leaf/60">
                   <FileText class="w-4 h-4" />
                 </span>
                 <input 
                   id="site_name"
                   v-model="form.site_name"
                   type="text" 
-                  class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-250"
-                  placeholder="Masukkan Nama Web..."
+                  class="w-full bg-brand-cream/70 border border-brand-sand rounded-xl pl-10 pr-4 py-2.5 text-sm text-brand-dark placeholder-brand-leaf/40 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15 transition-all duration-200"
+                  placeholder="Contoh: RÜYA Modest Wear"
                 />
-                <div v-if="form.errors.site_name" class="text-xs text-rose-500 font-semibold mt-1">
+                <div v-if="form.errors.site_name" class="text-xs text-rose-600 font-semibold mt-1">
                   {{ form.errors.site_name }}
                 </div>
               </div>
@@ -138,76 +142,79 @@ const submit = () => {
             <!-- Site Description -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
               <div>
-                <label for="site_description" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Tentang Kami</label>
-                <p class="text-xxs text-slate-550 mt-1">Deskripsi singkat yang tampil di footer atau halaman tentang kami.</p>
+                <label for="site_description" class="text-xs font-bold text-brand-dark/80 uppercase tracking-wider">Filosofi & Deskripsi Singkat</label>
+                <p class="text-xxs text-brand-leaf/70 mt-1">Teks editorial yang tampil di footer dan meta informasi brand RÜYA.</p>
               </div>
               <div class="md:col-span-2">
                 <textarea 
                   id="site_description"
                   v-model="form.site_description"
                   rows="5"
-                  class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-250 resize-none"
-                  placeholder="Tulis deskripsi singkat..."
+                  class="w-full bg-brand-cream/70 border border-brand-sand rounded-xl px-4 py-2.5 text-sm text-brand-dark placeholder-brand-leaf/40 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15 transition-all duration-200 resize-none"
+                  placeholder="Tulis deskripsi atau filosofi brand..."
                 ></textarea>
-                <div v-if="form.errors.site_description" class="text-xs text-rose-500 font-semibold mt-1">
+                <div v-if="form.errors.site_description" class="text-xs text-rose-600 font-semibold mt-1">
                   {{ form.errors.site_description }}
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Tab 2: Kontak & Tautan -->
+          <!-- Tab 2: WhatsApp & Kontak -->
           <div v-if="currentTab === 'links'" class="space-y-6 animate-fadeIn">
             <!-- Whatsapp Number -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
               <div>
-                <label for="whatsapp_number" class="text-xs font-bold text-slate-400 uppercase tracking-wider">No. WhatsApp</label>
-                <p class="text-xxs text-slate-550 mt-1">Gunakan kode negara tanpa spasi, contoh: 628123456789</p>
+                <label for="whatsapp_number" class="text-xs font-bold text-brand-dark/80 uppercase tracking-wider">WhatsApp Personal Shopper</label>
+                <p class="text-xxs text-brand-leaf/70 mt-1">Gunakan format internasional tanpa spasi atau tanda plus, contoh: 6281316053870</p>
               </div>
               <div class="md:col-span-2 relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-brand-leaf/60">
                   <Phone class="w-4 h-4" />
                 </span>
                 <input 
                   id="whatsapp_number"
                   v-model="form.whatsapp_number"
                   type="text" 
-                  class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-250"
-                  placeholder="628123456..."
+                  class="w-full bg-brand-cream/70 border border-brand-sand rounded-xl pl-10 pr-4 py-2.5 text-sm text-brand-dark placeholder-brand-leaf/40 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15 transition-all duration-200"
+                  placeholder="6281316053870"
                 />
-                <div v-if="form.errors.whatsapp_number" class="text-xs text-rose-500 font-semibold mt-1">
+                <div v-if="form.errors.whatsapp_number" class="text-xs text-rose-600 font-semibold mt-1">
                   {{ form.errors.whatsapp_number }}
                 </div>
               </div>
             </div>
 
-            <!-- Play Store Link -->
+            <!-- Play Store or Catalog Link -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-              <label for="playstore_link" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Link Play Store</label>
+              <div>
+                <label for="playstore_link" class="text-xs font-bold text-brand-dark/80 uppercase tracking-wider">Tautan Lookbook Eksternal</label>
+                <p class="text-xxs text-brand-leaf/70 mt-1">URL tautan Instagram, e-katalog, atau link pendukung lainnya.</p>
+              </div>
               <div class="md:col-span-2 relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-brand-leaf/60">
                   <LinkIcon class="w-4 h-4" />
                 </span>
                 <input 
                   id="playstore_link"
                   v-model="form.playstore_link"
                   type="url" 
-                  class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all duration-250"
-                  placeholder="https://play.google.com/store/apps/details?id=..."
+                  class="w-full bg-brand-cream/70 border border-brand-sand rounded-xl pl-10 pr-4 py-2.5 text-sm text-brand-dark placeholder-brand-leaf/40 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/15 transition-all duration-200"
+                  placeholder="https://instagram.com/ruya.couture"
                 />
-                <div v-if="form.errors.playstore_link" class="text-xs text-rose-500 font-semibold mt-1">
+                <div v-if="form.errors.playstore_link" class="text-xs text-rose-600 font-semibold mt-1">
                   {{ form.errors.playstore_link }}
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Tab 3: Logo Website -->
+          <!-- Tab 3: Logo Monogram -->
           <div v-if="currentTab === 'logo'" class="space-y-6 animate-fadeIn">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
               <div>
-                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Logo Website</h3>
-                <p class="text-xxs text-slate-550 mt-1">Logo resmi situs web Anda. Format yang disarankan adalah PNG dengan latar belakang transparan.</p>
+                <h3 class="text-xs font-bold text-brand-dark/80 uppercase tracking-wider">Monogram & Stamp Resmi</h3>
+                <p class="text-xxs text-brand-leaf/70 mt-1">Logo resmi brand RÜYA. Format yang disarankan adalah PNG dengan latar belakang transparan beresolusi tinggi.</p>
               </div>
 
               <div class="md:col-span-2 space-y-6">
@@ -217,7 +224,7 @@ const submit = () => {
                   @dragleave.prevent="isDragging = false"
                   @drop.prevent="handleDrop"
                   :class="[
-                    isDragging ? 'border-indigo-500 bg-indigo-500/5' : 'border-slate-800 bg-slate-900/20 hover:border-slate-700',
+                    isDragging ? 'border-brand-primary bg-brand-sand/40' : 'border-brand-sand bg-brand-cream/40 hover:border-brand-primary/60',
                     'border-2 border-dashed rounded-3xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300 relative min-h-[220px]'
                   ]"
                 >
@@ -230,26 +237,26 @@ const submit = () => {
                   />
 
                   <!-- Dynamic Icon/Preview -->
-                  <div v-if="logoPreview" class="relative group max-w-[200px] max-h-[120px] rounded-xl overflow-hidden">
+                  <div v-if="logoPreview" class="relative group max-w-[200px] max-h-[140px] rounded-2xl overflow-hidden p-2 bg-white border border-brand-sand shadow-sm">
                     <img 
                       :src="logoPreview" 
                       alt="Site Logo Preview" 
-                      class="max-w-full max-h-full object-contain p-2"
+                      class="max-w-full max-h-full object-contain"
                     />
                   </div>
                   <div v-else class="flex flex-col items-center gap-3">
-                    <div class="p-4 bg-indigo-500/10 rounded-2xl text-indigo-400 border border-indigo-500/20">
-                      <ImageIcon class="w-8 h-8" />
+                    <div class="p-4 bg-brand-sand/60 rounded-2xl text-brand-dark border border-brand-blush/60 shadow-sm">
+                      <ImageIcon class="w-8 h-8 text-brand-leaf" />
                     </div>
                     <div>
-                      <p class="text-sm font-semibold text-slate-200">Drag & drop logo Anda di sini</p>
-                      <p class="text-xs text-slate-500 mt-1">atau klik untuk memilih dari komputer Anda</p>
+                      <p class="text-sm font-semibold text-brand-dark">Drag & drop logo stempel RÜYA di sini</p>
+                      <p class="text-xs text-brand-leaf/70 mt-1">atau klik untuk memilih dari penyimpanan komputer</p>
                     </div>
                   </div>
                 </div>
 
-                <p class="text-xxs text-slate-500">Maksimal ukuran berkas 2 MB (PNG, JPG, JPEG, WEBP)</p>
-                <div v-if="form.errors.site_logo" class="text-xs text-rose-500 font-semibold mt-1">
+                <p class="text-xxs text-brand-leaf/60">Maksimal ukuran berkas 2 MB (Format disarankan: PNG transparan)</p>
+                <div v-if="form.errors.site_logo" class="text-xs text-rose-600 font-semibold mt-1">
                   {{ form.errors.site_logo }}
                 </div>
               </div>
@@ -259,14 +266,14 @@ const submit = () => {
         </div>
 
         <!-- Footer Action -->
-        <div class="px-6 py-4 bg-slate-900/40 border-t border-slate-800 flex justify-end">
+        <div class="px-6 md:px-8 py-4 bg-brand-sand/20 border-t border-brand-sand flex justify-end">
           <button 
             type="submit" 
             :disabled="form.processing"
-            class="inline-flex items-center px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-sm font-semibold text-white rounded-xl shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/30 transition-all duration-200 cursor-pointer"
+            class="inline-flex items-center px-6 py-2.5 bg-brand-dark hover:bg-brand-deep border border-brand-gold/30 disabled:opacity-50 text-xs font-semibold uppercase tracking-widest text-brand-cream rounded-xl shadow-md transition-all duration-200 cursor-pointer"
           >
-            <Save class="w-4 h-4 mr-2" />
-            Simpan Konfigurasi
+            <Save class="w-4 h-4 mr-2 text-brand-gold" />
+            Simpan Perubahan
           </button>
         </div>
       </form>
