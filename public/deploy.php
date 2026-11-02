@@ -54,6 +54,11 @@ if (file_exists($lockFile) && (time() - filemtime($lockFile) < 180)) {
     exit;
 }
 
+// Hapus file 'hot' (Vite dev server indicator) jika ada agar tidak mengarah ke 127.0.0.1:5173
+if (file_exists(__DIR__ . '/hot')) {
+    @unlink(__DIR__ . '/hot');
+}
+
 touch($lockFile);
 header('Content-Type: text/html; charset=utf-8');
 ?>
